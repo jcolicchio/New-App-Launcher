@@ -1,0 +1,251 @@
+<html>
+<head>
+<link rel='stylesheet' href='index.css'>
+<link rel='stylesheet' href='theme.css'>
+
+<script src='js/jquery-1.8.3.js'></script>
+<script src='js/jquery.xdomainajax.js'></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<script>
+
+var loadRedditData = function(sub, id) {
+	$.getJSON(
+		"http://www.reddit.com/"+sub+".json?jsonp=?",
+		function foo(data) {
+			$('#reddit-page'+id).html("");
+			$.each(data.data.children.slice(0, 10), function (i, post) {
+				$("#reddit-page"+id).append( '<div class=\'reddit-entry\'><a href=\"' + post.data.url + '\ target=\'_blank\'">' + post.data.title + '</a><div class=\'reddit-comment\'><a href=\"http://www.reddit.com' + post.data.permalink + '\">'+post.data.num_comments+' Comments</a></div></div>');
+//              $("#reddit-page"+id).append( '<br>' + post.data.ups );
+//              $("#reddit-page"+id).append( '<br>' + post.data.downs );
+			}
+		)
+	});
+};
+	
+$(document).ready(function(){
+	//$('input').focus();
+	//make a test query to reddit
+	loadRedditData("", 1);
+	loadRedditData("r/web_design", 2);
+	loadRedditData("r/birdswitharms", 3);
+	
+	
+	$('#twitter-text').keyup(function() {
+		var charsLeft = 140-$(this).val().length;
+		$('#twitter-chars').html(charsLeft);
+		if(charsLeft > 40) {
+			$('#twitter-chars').css("color", "white");
+		} else if(charsLeft > 20) {
+			$('#twitter-chars').css("color", "yellow");
+		} else if(charsLeft > 0) {
+			$('#twitter-chars').css("color", "orange");
+		} else {
+			$('#twitter-chars').css("color", "red");
+		}
+	});
+});
+</script>
+
+</head>
+
+<body>
+
+
+<div id='reddit1' class='reddit-alias alias'></div>
+<div id='reddit2' class='reddit-alias alias'></div>
+<div id='reddit3' class='reddit-alias alias'></div>
+
+<div id='gmail1' class='gmail-alias alias'></div>
+<div id='gmail2' class='gmail-alias alias'></div>
+
+<div id='twitter' class='alias'></div>
+<div id='facebook' class='alias'></div>
+<div id='jsfiddle' class='alias'></div>
+<div id='stackoverflow' class='alias'></div>
+<div id='novacoast' class='alias'></div>
+<div id='steam' class='alias'></div>
+<div id='gold' class='alias'></div>
+<div id='gauchospace' class='alias'></div>
+<div id='git' class='alias'></div>
+
+<div id='wrapper'>
+	<div class='page' id='gmail-page'>
+		<div class='title gmail-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'>
+				<div class='gmail-link lightup' id='gmail-link1'>joseph.colicchio@gmail.com<a href='https://mail.google.com/mail/u/0/'><span class='link'></span></a></div>
+				<div class='gmail-link lightup' id='gmail-link2'>macedecade@gmail.com<a href='https://mail.google.com/mail/u/1/'><span class='link'></span></a></div>
+			</div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup gmail' ><a href='http://gmail.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='twitter-page'>
+		<div class='title twitter-theme'>
+			<div class='left-panel'>
+				<div class='twitter-panel'>
+					<form action='http://twitter.com' method='post'>
+						why u cryin sanic?
+						<textarea id='twitter-text' rows='10'></textarea>
+						<span id='twitter-chars'>140</span>
+						<input class='tweet' type='submit' value='Tweet'>
+					</form>
+				</div>
+			</div>
+			<div class='right-panel'>
+				<div id='twitter-feed'>
+					thingkin of fast
+					<div id='twitter-wrapper'>
+						<div class='twitter-inner hide-scroll'>
+							<div id='twitter-content-list'>
+								<div class='twitter-tweet'><div class='twitter-pic'></div>hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world </div>
+								<div class='twitter-tweet'><div class='twitter-pic'></div>hello world</div>
+								<div class='twitter-tweet'><div class='twitter-pic'></div>hello world</div>
+								<div class='twitter-tweet'><div class='twitter-pic'></div>hello world</div>
+								<div class='twitter-tweet'><div class='twitter-pic'></div>hello world</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup twitter' ><a href='http://twitter.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='facebook-page'>
+		<div class='title facebook-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup facebook' ><a href='http://facebook.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='jsfiddle-page'>
+		<div class='title jsfiddle-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup jsfiddle' ><a href='http://jsfiddle.net'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='stackoverflow-page'>
+		<div class='title stackoverflow-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup stackoverflow' ><a href='http://stackoverflow.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='reddit-page'>
+		<div class='title reddit-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'>
+				<div id='reddit-content'>
+					<div id='reddit-menu'>
+						<div class='reddit-menu-item lightup' id='reddit-menu1'><a href='#reddit1'><span class='link'>main</span></a></div>
+						<div class='reddit-menu-item lightup' id='reddit-menu2'><a href='#reddit2'><span class='link'>web_design</span></a></div>
+						<div class='reddit-menu-item lightup' id='reddit-menu3'><a href='#reddit3'><span class='link'>birdswitharms</span></a></div>
+					</div>
+					<div id='reddit-subs'>
+						<div class ='reddit-sub hide-scroll' id='reddit-page1'><div class='error'>Content not found. <a href='index.html'>Retry?</a></div></div>
+						<div class ='reddit-sub hide-scroll' id='reddit-page2'><div class='error'>Content not found. <a href='index.html'>Retry?</a></div></div>
+						<div class ='reddit-sub hide-scroll' id='reddit-page3'><div class='error'>Content not found. <a href='index.html'>Retry?</a></div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup reddit' ><a href='http://reddit.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='novacoast-page'>
+		<div class='title novacoast-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup novacoast' ><a href='http://inside.novacoast.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='steam-page'>
+		<div class='title steam-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup steam' ><a href='http://steampowered.com'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='gold-page'>
+		<div class='title gold-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup gold' ><a href='http://my.sa.ucsb.edu/gold/login.aspx'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='gauchospace-page'>
+		<div class='title gauchospace-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup gauchospace' ><a href='http://gauchospace.ucsb.edu'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<div class='page' id='git-page'>
+		<div class='title git-theme'>
+			<div class='left-panel'></div>
+			<div class='right-panel'></div>
+		</div>
+		<div class='content'>
+			<div class='icon lightup git' ><a href='https://github.com/'><span class='link'></span></a></div>
+		</div>
+	</div>
+	
+	<!--<div id='title'><div id='title-inner'>Gmail</div></div>
+	<div class='btn' id='left'></div>
+	<div class='btn' id='right'></div>
+	<div id='content'>
+		<div class='icon gmail lightup' ><a href='http://gmail.com'><span class='link'></span></a></div>
+	</div>-->
+	
+	<div id='footer'>
+		<a href="#"><span id='link1' class='link'></span></a>
+	</div>
+
+	<div class='drawer'>
+		<div class='lightup gmail'>         <a href='#gmail1'>        <span class='link'></span></a></div>
+		<div class='lightup twitter'>       <a href='#twitter'>       <span class='link'></span></a></div>
+		<div class='lightup facebook'>      <a href='#facebook'>      <span class='link'></span></a></div>
+		<div class='lightup jsfiddle'>      <a href='#jsfiddle'>      <span class='link'></span></a></div>
+		<div class='lightup stackoverflow'> <a href='#stackoverflow'> <span class='link'></span></a></div>
+		<div class='lightup reddit'>        <a href='#reddit1'>       <span class='link'></span></a></div>
+		<div class='lightup novacoast'>     <a href='#novacoast'>     <span class='link'></span></a></div>
+		<div class='lightup steam'>         <a href='#steam'>         <span class='link'></span></a></div>
+		<div class='lightup gold'>          <a href='#gold'>          <span class='link'></span></a></div>
+		<div class='lightup gauchospace'>   <a href='#gauchospace'>   <span class='link'></span></a></div>
+		<div class='lightup git'>           <a href='#git'>           <span class='link'></span></a></div>
+	</div>
+
+</div>
+
+</body>
+</html>

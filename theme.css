@@ -1,0 +1,329 @@
+.gmail {
+	background-image: url('images/gmaillogo.png');
+}
+.gmail-theme {
+	background: #bb2222;
+}
+.gmail-theme:before {
+	content: 'Gmail';
+}
+.gmail-link {
+	font-size: 30px;
+	text-align: left;
+	color: #333;
+	padding: 5px;
+	width: 100%;
+	//background: lightBlue;
+	margin-top: 10px;
+	position: relative;
+}
+#gmail-link1 {
+	margin-top: 300px;
+}
+.gmail-alias:target ~ #wrapper #gmail-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.twitter {
+	background-image: url('images/twitlogo.png');
+}
+.twitter-theme {
+	background: #008888;
+}
+.twitter-theme:before {
+	content: 'Twitter';
+}
+#twitter:target ~ #wrapper #twitter-page {
+	z-index: 1;
+	opacity: 1;
+}
+.twitter-panel {
+	border-radius: 4px;
+	width: 340px;
+	height: 240px;
+	margin: 60px auto;
+	background: #006666;
+	font-size: 22px;
+	padding: 8px;
+}
+textarea {
+	width: 100%;
+}
+#twitter-chars {
+	margin-left: 10px;
+	float: left;
+	font-size: 28px;
+	font-weight: bold;
+
+}
+.tweet {
+	font-size: 26px;
+	margin-right: 10px;
+	float: right;
+}
+#twitter-feed {
+	position: absolute;
+	top: 220px;
+	bottom: 6px;
+	left: 10px;
+	right: 10px;
+	background: #006666;
+	border-radius: 4px;
+	font-size: 42px;
+}
+#twitter-wrapper {
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+}
+.twitter-inner {
+	background: white;
+	border-radius: 10px;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0px 0px 20px black inset;
+}
+#twitter-content-list {
+	//height: 800px;
+	//background: orange;
+	padding-bottom: 20px;
+}
+.twitter-tweet {
+	text-align: left;
+	font-size: 18px;
+	background: #2299bb;
+	border: 5px solid #3388aa;
+	margin: 10px 16px;
+	padding: 4px;
+	border-radius: 4px;
+	//vertical-align: top;
+}
+.twitter-pic {
+	width: 40px;
+	height: 40px;
+	background: pink;
+	display: inline-block;
+	margin-right: 4px;
+}
+
+.facebook {
+	background-image: url('images/facebook_logo.png');
+}
+.facebook-theme {
+	background: #6e84b5;
+}
+.facebook-theme:before {
+	content: 'Facebook';
+}
+#facebook:target ~ #wrapper #facebook-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.jsfiddle {
+	background-image: url('images/jslogo.png');
+}
+.jsfiddle-theme {
+	background: #7777bb;
+}
+.jsfiddle-theme:before {
+	content: 'jsFiddle';
+}
+#jsfiddle:target ~ #wrapper #jsfiddle-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.stackoverflow {
+	background-image: url('images/stackoverflow.png');
+}
+.stackoverflow-theme {
+	background: #7777bb;
+}
+.stackoverflow-theme:before {
+	content: 'StackOverflow';
+}
+#stackoverflow:target ~ #wrapper #stackoverflow-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.reddit {
+	background-image: url('images/reddlogo.png');
+}
+.reddit-theme {
+	background: #f04b24;
+}
+.reddit-theme:before {
+	content: 'Reddit';
+}
+#reddit-content {
+	position: absolute;
+	top: 140px;
+	width: 100%;
+	bottom: 0px;
+	background: f86;
+	overflow: hidden;
+}
+#reddit-menu {
+	height: 50px;
+	background: white;
+	position: relative;
+	padding: 5px;
+	box-shadow: 0px 5px 40px black;
+	z-index: 2;
+}
+.reddit-menu-item {
+	width: 32%;
+	top: 5px;
+	bottom: 5px;
+	position: absolute;
+	font-size: 32px;
+	background: f04b24;
+	overflow: hidden;
+}
+#reddit-menu1 {
+	left: 5px;
+}
+#reddit-menu2 {
+	position: relative;
+	margin: 0 auto;
+	top: 0;
+	height: 100%;
+}
+#reddit-menu3 {
+	right: 5px;
+	font-size: 30px;
+}
+.reddit-menu-item a, .reddit-comment a{
+	color: #444;
+	font-weight: bold;
+}
+#reddit-subs {
+	text-align: left;
+	font-size: 18px;
+	color: #222;
+	position: absolute;
+	width: 100%;
+	top: 60px;
+	bottom: 0;
+}
+.reddit-sub {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+.hide-scroll::-webkit-scrollbar { 
+    display: none; 
+}
+.reddit-entry {
+	padding: 4px;
+	background: white;
+	margin: 4px;
+}
+.reddit-comment {
+	font-size: 14px;
+}
+.reddit-alias:target ~ #wrapper #reddit-page {
+	z-index: 1;
+	opacity: 1;
+}
+#reddit1:target ~ #wrapper #reddit-page1 {
+	opacity: 1;
+	z-index: 1;
+}
+#reddit2:target ~ #wrapper #reddit-page2 {
+	opacity: 1;
+	z-index: 1;
+}
+#reddit3:target ~ #wrapper #reddit-page3 {
+	opacity: 1;
+	z-index: 1;
+}
+#reddit1:target ~ #wrapper #reddit-menu1 {
+	background: e03b14;
+}
+#reddit2:target ~ #wrapper #reddit-menu2 {
+	background: e03b14;
+}
+#reddit3:target ~ #wrapper #reddit-menu3 {
+	background: e03b14;
+}
+
+.novacoast {
+	background-image: url('images/novalogo.png');
+}
+.novacoast-theme {
+	background: #7777bb;
+}
+.novacoast-theme:before {
+	content: 'Novacoast';
+}
+#novacoast:target ~ #wrapper #novacoast-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.steam {
+	background-image: url('images/steamlogo.png');
+}
+.steam-theme {
+	background: #555;
+}
+.steam-theme:before {
+	content: 'Steam';
+}
+#steam:target ~ #wrapper #steam-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.gold {
+	background-image: url('images/gold_logo.png');
+}
+.gold-theme {
+	background: #feb727;
+}
+.gold-theme:before {
+	content: 'GOLD';
+}
+#gold:target ~ #wrapper #gold-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.gauchospace {
+	background-image: url('images/gauchospace_logo.png');
+}
+.gauchospace-theme {
+	background: #feb727;
+}
+.gauchospace-theme:before {
+	content: 'GauchoSpace';
+}
+#gauchospace:target ~ #wrapper #gauchospace-page {
+	z-index: 1;
+	opacity: 1;
+}
+
+.git {
+	background-image: url('images/gitlogo.png');
+}
+.git-theme {
+	background: #f33538;
+}
+.git-theme:before {
+	content: 'GitHub';
+}
+#git:target ~ #wrapper #git-page {
+	z-index: 1;
+	opacity: 1;
+}
